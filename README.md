@@ -1,4 +1,4 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 06: TCP Chat Server
+[![Build Status](https://travis-ci.com/taerichard/06-tcp-server.svg?branch=master)](https://travis-ci.com/taerichard/06-tcp-server)
 ======
 
 ## Submission Instructions
