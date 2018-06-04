@@ -4,7 +4,6 @@
   "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 06: TCP Chat Server ======",
   "main": "chatroom.js",
   "scripts": {
-    "test": "jest",
     "lint": "eslint **/.js",
     "start": "node index.js",
     "server": "nodemon index.js",
