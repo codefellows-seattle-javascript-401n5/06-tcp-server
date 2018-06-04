@@ -51,3 +51,25 @@ For this assignment, you will be building a TCP chatroom. Clients should be able
 
 ##  Documentation  
 Write basic documention for starting your server connection and using the chatroom application.  Be sure to use proper markdown constructs and `highlight blocks of code`.
+
+-Starting my server I needed to require the "net module" located in app.js, in order to open the server connection.  
+
+`const app = require('./src/app')`; = where the net module is located with "ON" methods. 
+
+`const port = process.env.PORT || 5000;`
+Then creating a port variable in index.js where port is assigned to process.env.PORT OR 5000 which means "whatever is in the enviornment variable PORT or 5000 if there's nothing there." 
+
+Once the server turned on, I needed to create my core application where @dm,@quit,@list,@all would be passed through in order to show/see/update the messages.  When the server is on, the following code would run: 
+`app.on('connection', (socket) => {`
+    `let user = new Client(socket);`
+    `clientPool[user.id] = user;`
+    `socket.on('data', (data) => {`
+       `const text = data.toString().trim();`
+        `if(text.startsWith('@')){`
+            `let [command, payload] = text.split(/\s+(.*)/);`
+            `chatEmitter.emit(command, payload, user.id);`
+    `Object.keys(clientPool).forEach(key => {`
+        `clientPool[key].socket.write('User: ' + user.id + ' has joined\n');`
+This code means: once the app is on and has connection, the socket will be passed through for new Clients.  If text starts with '@' then the program is registered to understand it as a command.
+
+Once the core app was updated, chatEmitter.js is where the eventEmitter.on happens where I required the eventEmitter.  Once the new eventEmitter was established, I was able to create the four command keys; @all,@dm,@list,@quit.     
