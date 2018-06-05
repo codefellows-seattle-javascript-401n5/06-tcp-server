@@ -74,8 +74,8 @@ eventEmitter.on('@nick', (data, userId) => {
 });
 
 eventEmitter.on('@dm', (data, userId) => {
-
     
+    console.log(userId.message)
     // data.target
     // data.message
     // find socketPool[target].socket.write(message);
